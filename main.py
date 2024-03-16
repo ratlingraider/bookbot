@@ -25,7 +25,15 @@ def get_book_text(path):
         return f.read()
 
 def get_num_letters(text):
-    letters = get_num_words(text).split()
-    return len(letters)
+    all_freq = {}
+    words = text.split()
+    letters = ''.join(words)
+    lower_letters = letters.lower()
+    for i in lower_letters:
+        if i in all_freq:
+            all_freq[i] += 1
+        else:
+            all_freq[i] = 1
+    return all_freq
 
 main()
